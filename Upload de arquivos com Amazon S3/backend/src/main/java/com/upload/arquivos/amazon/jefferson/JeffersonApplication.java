@@ -19,7 +19,10 @@ public class JeffersonApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+		/*
 		s3Service.uploadFile("C://Users//jeffe//Downloads//2023-09-20_08h51_52.png");
+
+		 */
 
 	}
 }
