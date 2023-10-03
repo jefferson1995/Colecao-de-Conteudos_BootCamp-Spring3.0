@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "515597a1-f819-4ec4-aeb2-41a2f8b6f1cf",
+		"name": "Upload de arquivos com Amazon S3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24512307",
+		"_collection_link": "https://restless-crater-230845.postman.co/workspace/-Cole%25C3%25A7%25C3%25A3o-de-conte%25C3%25BAdos---Bootcam~bc5a539f-926b-4629-8ea8-de6367cb1565/collection/24512307-515597a1-f819-4ec4-aeb2-41a2f8b6f1cf?action=share&source=collection_link&creator=24512307"
+	},
+	"item": [
+		{
+			"name": "Upload de imagem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/jeffe/Downloads/2023-09-20_08h51_52.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "/image",
+					"path": [
+						"image"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
