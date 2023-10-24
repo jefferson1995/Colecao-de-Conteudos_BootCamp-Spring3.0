@@ -21,12 +21,12 @@ function App() {
 
     // https://github.com/react-boilerplate/react-boilerplate/issues/2952
     const firebaseConfig = {
-      apiKey: "AIzaSyCHbRm9HW2JQQcj0P76T_En5nR0P2luBGo",
-      authDomain: "aula-push-bds.firebaseapp.com",
-      projectId: "aula-push-bds",
-      storageBucket: "aula-push-bds.appspot.com",
-      messagingSenderId: "910401698613",
-      appId: "1:910401698613:web:1857d9926d2a819ca4ea7c"
+      apiKey: "AIzaSyDAiEtjfkAQcIIsPCi2t3Y-OI_wshj5SMw",
+      authDomain: "aula-push-notification.firebaseapp.com",
+      projectId: "aula-push-notification",
+      storageBucket: "aula-push-notification.appspot.com",
+      messagingSenderId: "319398694618",
+      appId: "1:319398694618:web:4f14591cd24a61245adfe3"
     };
 
     firebase.initializeApp(firebaseConfig);
