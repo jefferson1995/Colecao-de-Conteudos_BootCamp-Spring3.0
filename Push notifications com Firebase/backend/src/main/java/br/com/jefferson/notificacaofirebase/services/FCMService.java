@@ -1,5 +1,6 @@
 package br.com.jefferson.notificacaofirebase.services;
 
+import br.com.jefferson.notificacaofirebase.dto.PushNotificationRequestDTO;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -27,6 +28,31 @@ public class FCMService {
         FirebaseApp.initializeApp(options);
     }
 
+
+    //Gera o token para enviar a notificação
+    public void sendMessageToToken(PushNotificationRequestDTO request) throws InterruptedException, ExecutionException {
+        Message message = getPreconfiguredMessageToToken(request);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create(); //Parciar Json e vice e versa
+        String jsonOutput = gson.toJson(message); // Converte para Json
+        String response = sendAndGetResponse(message); // Método auxiliar
+        logger.info("Sent message to token. Device token: " + request.getToken() + ", " + response + " msg " + jsonOutput);
+    }
+
+
+    //Métodos auxiliares para construir o Message do firebase
+    private String sendAndGetResponse(Message message) throws InterruptedException, ExecutionException {
+        return FirebaseMessaging.getInstance().sendAsync(message).get();
+    }
+
+
+    private Message getPreconfiguredMessageToToken(PushNotificationRequestDTO request) {
+        return getPreconfiguredMessageBuilder(request).setToken(request.getToken()).build();
+    }
+
+    private Message.Builder getPreconfiguredMessageBuilder(PushNotificationRequestDTO request) {
+        Notification notification = Notification.builder().setTitle(request.getTitle()).setBody(request.getMessage()).build();
+        return Message.builder().setNotification(notification);
+    }
 
 
 }
