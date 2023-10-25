@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "09604103-0960-4a71-a7e6-c4ebe8f04add",
+		"name": "Push Notifications com Firebase",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24512307",
+		"_collection_link": "https://restless-crater-230845.postman.co/workspace/-Cole%25C3%25A7%25C3%25A3o-de-conte%25C3%25BAdos---Bootcam~bc5a539f-926b-4629-8ea8-de6367cb1565/collection/24512307-09604103-0960-4a71-a7e6-c4ebe8f04add?action=share&source=collection_link&creator=24512307"
+	},
+	"item": [
+		{
+			"name": "enviar notificação",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Meu titulo 2\",\r\n    \"message\": \"Meu corpo da mensagem 2\",\r\n    \"token\": \"cwSW0OZB-69imczEgss5n6:APA91bGgA6UzqIAFU8EvkMwkSFylkE01fL6xuWgaMzhCDjbthol_BmgmOxlXwXVEWm8TgATEgtv33Zdh54Wudyw7PWD-Neexj5uR1mY5XAiS808n43TsF-0BglNPUBP4C8QxI2PnELGY\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/notifications",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
