@@ -21,7 +21,7 @@ public class JeffersonApplication implements CommandLineRunner {
 
 		/*
 		s3Service.uploadFile("C://Users//jeffe//Downloads//2023-09-20_08h51_52.png");
-
+12
 		 */
 
 	}
