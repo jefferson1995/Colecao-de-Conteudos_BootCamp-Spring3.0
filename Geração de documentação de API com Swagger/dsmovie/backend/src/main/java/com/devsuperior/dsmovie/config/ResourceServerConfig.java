@@ -36,9 +36,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String[] PUBLIC = { "/oauth/token", "/h2-console/**" };
 
-    private static final String[] OPERATOR_OR_ADMIN = { "/products/**", "/categories/**" };
+    private static final String[] ALL_USERS_GET = {"/movies/**"};
 
-    private static final String[] ADMIN = { "/users/**" };
+    private static final String[] ALL_USERS_PUT = {"/scores/**"};
+
+
+
+
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -55,10 +59,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers(PUBLIC).permitAll()
-                .antMatchers(HttpMethod.GET, OPERATOR_OR_ADMIN).permitAll()
-                .antMatchers(OPERATOR_OR_ADMIN).hasAnyRole("OPERATOR", "ADMIN")
-                .antMatchers(ADMIN).hasRole("ADMIN")
-                .anyRequest().authenticated();
+                .antMatchers(HttpMethod.GET, ALL_USERS_GET).permitAll()
+                .antMatchers(HttpMethod.PUT, ALL_USERS_PUT).permitAll()
+                .anyRequest().hasAnyRole("ADMIN");  // qualquer outro endpoint precisa ser o admin
 
         http.cors().configurationSource(corsConfigurationSource());
     }
