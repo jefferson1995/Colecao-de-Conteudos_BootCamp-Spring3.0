@@ -1,11 +1,22 @@
 package com.devsuperior.dsmovie.dto;
 
 import com.devsuperior.dsmovie.entities.Movie;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.validation.constraints.*;
 
 public class MovieDTO {
 
+	@ApiModelProperty(notes = "Id é gerado automaticamente")
 	private Long id;
+	@ApiModelProperty(notes = "Movie title")
+	@NotEmpty(message = "can't be empty")
+	@Size(min = 3, max = 50, message = "Length must be between 3 and 50")
 	private String title;
+
+	@PositiveOrZero
+	@Min(value = 0, message = "Score should not be less than 0")
+	@Max(value = 5, message = "Score should not be greater than 5")
 	private Double score;
 	private Integer count;
 	private String image;
