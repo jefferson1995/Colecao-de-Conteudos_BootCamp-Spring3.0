@@ -63,7 +63,7 @@ public class SwaggerConfig {
     private ApiInfo metaData() {
         return new ApiInfoBuilder().title("Dsmovie API")
                 .description("\"Spring Boot REST API for SDS 8\"").version("1.0.0")
-                .contact(new Contact("Devsuperior", "https://github.com/devsuperior", "https://www.instagram.com/devsuperior.ig/"))
+                .contact(new Contact("GiHub", "https://github.com/jefferson1995", "https://www.linkedin.com/in/jefferson-barbosa-225349149/"))
                 .build();
     }
 
