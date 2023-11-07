@@ -1,5 +1,6 @@
 package com.devsuperior.dsmovie.services;
 
+import com.devsuperior.dsmovie.dto.MovieGenreDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,10 +24,25 @@ public class MovieService {
         return page;
     }
 
+    //Novo método para implementar na versão V1 com URI
+    @Transactional(readOnly = true)
+    public Page<MovieGenreDTO> findAllMovieGenre(Pageable pageable) {
+        Page<Movie> result = repository.findAll(pageable);
+        Page<MovieGenreDTO> page = result.map(x -> new MovieGenreDTO(x));
+        return page;
+    }
+
     @Transactional(readOnly = true)
     public MovieDTO findById(Long id) {
         Movie result = repository.findById(id).get();
         MovieDTO dto = new MovieDTO(result);
+        return dto;
+    }
+
+    @Transactional(readOnly = true)
+    public MovieGenreDTO findByIdMovieGenre(Long id) {
+        Movie result = repository.findById(id).get();
+        MovieGenreDTO dto = new MovieGenreDTO(result);
         return dto;
     }
 

@@ -16,6 +16,11 @@ public class Genre {
     @OneToMany(mappedBy = "genre")
     public List<Movie> movie = new ArrayList<>();
 
+    public Genre(){
+
+    }
+
+
     public Genre(Long id, String name) {
         this.id = id;
         this.name = name;
