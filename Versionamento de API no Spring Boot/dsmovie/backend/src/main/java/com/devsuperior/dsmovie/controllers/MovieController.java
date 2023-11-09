@@ -1,5 +1,6 @@
 package com.devsuperior.dsmovie.controllers;
 
+import com.devsuperior.dsmovie.dto.MovieGenreDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -29,10 +30,27 @@ public class MovieController {
 	public Page<MovieDTO> findAll(Pageable pageable) {
 		return service.findAll(pageable);
 	}
+
+	//Nova versão por media type
+	/*
+		Para executar no postman > headers -> adicionar um accept com o valor do produces 
+	 */
+	@GetMapping(produces = "application/vdn.devsuperior.dsmovie+v1+json") //Se estiver no cabeçalho da requisição, irá executar este método
+	public Page<MovieGenreDTO> findAllV1(Pageable pageable) {
+		return service.findAllMovieGenre(pageable);
+	}
+
 	
 	@GetMapping(value = "/{id}",  produces = MediaType.APPLICATION_JSON_VALUE)
 	public MovieDTO findById(@PathVariable Long id) {
 		return service.findById(id);
+	}
+
+	//Nova versão por media type
+
+	@GetMapping(value = "/{id}",  produces = "application/vdn.devsuperior.dsmovie+v1+json")
+	public MovieGenreDTO findByIdV1(@PathVariable Long id) {
+		return service.findByIdMovieGenre(id);
 	}
 
 	@PostMapping
